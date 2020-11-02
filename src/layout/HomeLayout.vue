@@ -1,23 +1,6 @@
 <template>
   <div>
-    <v-toolbar height="72" color="grey lighten-4" v-show="appbar">
-      <v-btn height="72" width="150" color="#000000">
-        <i>HH</i>
-      </v-btn>
-      <v-btn
-        depressed
-        height="72"
-        tile
-        v-for="(item, index) in barItems"
-        :key="index"
-        color="#ffffff"
-      >
-        <v-icon>mdi-{{ item.icon }}</v-icon>
-        <p>{{ item.title }}</p>
-        <v-icon>mdi-menu-down</v-icon>
-      </v-btn>
-      <v-btn depressed height="72" dark color="#569DC3" tile>RESERVE NOW</v-btn>
-    </v-toolbar>
+    <ToolBar :show="appbar" :barItems="barItems" reserve=true></ToolBar>
     <v-col class="header">
       <v-col class="box" cols="10">
         <h1>Hotel</h1>
@@ -36,7 +19,8 @@
           @click="openMenu(item)"
         >
           <v-icon>mdi-{{ item.icon }}</v-icon>
-          <p>{{ item.title }}</p>
+          <p v-if="item.title == 'ROOM'">{{ type }}</p>
+          <p v-if="item.title != 'ROOM'">{{ item.title }}</p>
           <v-icon>mdi-menu-down</v-icon>
         </v-btn>
         <v-list style="padding:0px" v-show="show" outlined>
@@ -44,6 +28,7 @@
             v-for="(menu, index) in menuItems"
             :key="index"
             class="menu--list"
+            @click="choose(menu)"
           >
             <p>{{ menu }}</p>
           </v-list-item>
@@ -63,16 +48,20 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-    <v-col class="footer">
-      <v-img :src="images.footerSrc" height="352" class="footer--img"></v-img>
-      <p>© 2020 Hotel. All rights reserved.</p>
-    </v-col>
+    <Footer></Footer>
   </div>
 </template>
 <script>
+import ToolBar from "@/layout/ToolBar.vue";
+import Footer from "@/layout/Footer.vue"
 export default {
+  components: {
+    ToolBar,
+    Footer
+  },
   data() {
     return {
+      type: "ROOM",
       appbar: false,
       show: false,
       barItems: [
@@ -102,7 +91,6 @@ export default {
       ],
       images: {
         mainSrc: require("@/assets/img/main.jpeg"),
-        footerSrc: require("@/assets/img/footer-map.jpg")
       }
     };
   },
@@ -110,6 +98,7 @@ export default {
     openMenu(item) {
       if (item.title == "ROOM") {
         this.show = !this.show;
+        this.type = "ROOM";
       }
     },
     onIntersect(entries) {
@@ -119,6 +108,10 @@ export default {
       } else {
         this.appbar = true;
       }
+    },
+    choose(type) {
+      this.type = type;
+      this.$router.push("/select");
     }
   }
 };
@@ -167,32 +160,5 @@ export default {
     background-color: $hover-color;
     border: 1px solid grey;
   }
-}
-.v-toolbar {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  .v-btn {
-    display: flex;
-    flex: 1 1 auto;
-  }
-}
-.footer {
-  &--img {
-    margin-top: 20px;
-    margin-right: 85px;
-  }
-  p {
-    margin-left: $space-size;
-  }
-}
-::v-deep .v-toolbar__content {
-  justify-content: space-around;
-  padding: 4px 0px;
-}
-i {
-  color: white;
-  font-size: 36px;
-  font-weight: bold;
 }
 </style>

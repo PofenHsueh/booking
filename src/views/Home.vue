@@ -20,7 +20,6 @@
         <h6 class="text-color">over 50,000 commendations from our guests</h6>
       </div>
     </v-col>
-
     <v-col v-for="(room, index) in info" :key="index" class="info">
       <div class="info--title">
         <h1>{{ room.title }}</h1>
