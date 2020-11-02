@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar height="72" color="grey lighten-4" v-show="show">
+  <v-toolbar height="72" color="grey lighten-4" v-show="show" :style="{ position: position }">
     <v-btn height="72" width="150" color="#000000">
       <i>HH</i>
     </v-btn>
@@ -15,12 +15,14 @@
       <p>{{ item.title }}</p>
       <v-icon>mdi-menu-down</v-icon>
     </v-btn>
-    <v-btn depressed height="72" dark color="#569DC3" tile v-show="reserve">RESERVE NOW</v-btn>
+    <v-btn depressed height="72" dark color="#569DC3" tile v-show="reserve"
+      >RESERVE NOW</v-btn
+    >
   </v-toolbar>
 </template>
 <script>
 export default {
-  props: ["show", "barItems",'reserve']
+  props: ["show", "barItems", "reserve","position"]
 };
 </script>
 <style lang="scss" scoped>
@@ -29,7 +31,6 @@ export default {
   padding: 4px 0px;
 }
 .v-toolbar {
-  position: fixed;
   width: 100%;
   z-index: 99;
   .v-btn {

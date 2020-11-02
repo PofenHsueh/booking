@@ -1,12 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeLayout from "../layout/HomeLayout";
+import MainLayout from "../layout/MainLayout";
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "HomePage",
     component: HomeLayout,
     children: [
       {
@@ -19,9 +20,16 @@ const routes = [
   },
   {
     path: "/select",
-    name: "SelectRoom",
-    component: () =>
-      import(/* webpackChunkName: "Select" */ "../views/SelectRoom.vue")
+    name: "Select",
+    component: MainLayout,
+    children: [
+      {
+        path: "/select",
+        name: "SelectRoom",
+        component: () =>
+        import(/* webpackChunkName: "Select" */ "../views/SelectRoom.vue")
+      }
+    ]
   }
 ];
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ToolBar :show="appbar" :barItems="barItems" reserve=true></ToolBar>
+    <ToolBar :show="appbar" :barItems="barItems" reserve=true position="fixed"></ToolBar>
     <v-col class="header">
       <v-col class="box" cols="10">
         <h1>Hotel</h1>
@@ -52,8 +52,8 @@
   </div>
 </template>
 <script>
-import ToolBar from "@/layout/ToolBar.vue";
-import Footer from "@/layout/Footer.vue"
+import ToolBar from "@/components/ToolBar.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   components: {
     ToolBar,
@@ -90,7 +90,7 @@ export default {
         "Delux Twin Room"
       ],
       images: {
-        mainSrc: require("@/assets/img/main.jpeg"),
+        mainSrc: require("@/assets/img/main.jpeg")
       }
     };
   },
@@ -112,6 +112,7 @@ export default {
     choose(type) {
       this.type = type;
       this.$router.push("/select");
+      console.log(type)
     }
   }
 };
