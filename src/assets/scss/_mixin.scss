@@ -1,0 +1,7 @@
+@mixin straight($background, $color) {
+  writing-mode: vertical-lr;
+  z-index: 999;
+  position: absolute;
+  background-color: $background;
+  color: $color;
+}

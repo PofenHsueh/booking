@@ -1,5 +1,10 @@
 <template>
-  <v-toolbar height="72" color="grey lighten-4" v-show="show" :style="{ position: position }">
+  <v-toolbar
+    height="72"
+    color="grey lighten-4"
+    v-show="show"
+    :style="{ position: position }"
+  >
     <v-btn height="72" width="150" color="#000000">
       <i>HH</i>
     </v-btn>
@@ -22,7 +27,7 @@
 </template>
 <script>
 export default {
-  props: ["show", "barItems", "reserve","position"]
+  props: ["show", "barItems", "reserve", "position"]
 };
 </script>
 <style lang="scss" scoped>

@@ -27,7 +27,7 @@ const routes = [
         path: "/select",
         name: "SelectRoom",
         component: () =>
-        import(/* webpackChunkName: "Select" */ "../views/SelectRoom.vue")
+          import(/* webpackChunkName: "Select" */ "../views/SelectRoom.vue")
       }
     ]
   }

@@ -57,15 +57,15 @@ export default {
           type2: "Deluxe Single Room",
           price: "$1,380 NTD / night",
           price2: "$1,899 NTD / night",
-          src: require("@/assets/img/single.jpeg"),
-          src2: require("@/assets/img/deluxe-room.jpeg")
+          src: require("@/assets/img/SingleRoom.jpeg"),
+          src2: require("@/assets/img/DeluxeRoom.jpeg")
         },
         {
           title: "Two people",
           subtitle: "The perfect choice for both of you",
           type: "Double Room",
           price: "$2,460 NTD / night",
-          src: require("@/assets/img/double-room.jpeg"),
+          src: require("@/assets/img/DoubleRoom.jpeg"),
           type2: "Deluxe Double Room",
           price2: "$2,888 NTD / night",
           src2: require("@/assets/img/deluxe-double.jpeg")
@@ -75,27 +75,27 @@ export default {
           subtitle: "Wanna a big room? there you are",
           type: "Twin Room",
           price: "$3,350 NTD / night",
-          src: require("@/assets/img/twin-room.jpeg"),
+          src: require("@/assets/img/TwinRoom.jpeg"),
           type2: "Deluxe Twin Room",
           price2: "$3,899 NTD / night",
-          src2: require("@/assets/img/deluxe-twin.jpeg")
+          src2: require("@/assets/img/DeluxeTwinRoom.jpeg")
         }
       ],
       typeItems: [
         {
           title: "Twin Room",
           subtitle: "$3,350 NTD / night",
-          src: require("@/assets/img/twin-room.jpeg")
+          src: require("@/assets/img/TwinRoom.jpeg")
         },
         {
           title: "Double Room",
           subtitle: "$2,460 NTD / night",
-          src: require("@/assets/img/double-room.jpeg")
+          src: require("@/assets/img/DoubleRoom.jpeg")
         },
         {
           title: "Deluxe Single Room",
           subtitle: "$1,899 NTD / night",
-          src: require("@/assets/img/deluxe-room.jpeg")
+          src: require("@/assets/img/DeluxeRoom.jpeg")
         }
       ]
     };

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <ToolBar :show="appbar" :barItems="barItems" reserve=true position="fixed"></ToolBar>
+    <ToolBar
+      :show="appbar"
+      :barItems="barItems"
+      reserve="true"
+      position="fixed"
+    ></ToolBar>
     <v-col class="header">
       <v-col class="box" cols="10">
         <h1>Hotel</h1>
@@ -68,14 +73,7 @@ export default {
         { title: "CHECK-OUT & CHECK-OUT", icon: "calendar-range" },
         { title: "ROOM", icon: "bed" }
       ],
-      menuItems: [
-        "single room",
-        "deluxe single room",
-        "double room",
-        "deluxe double room",
-        "twin room",
-        "deluxe twin room"
-      ],
+      menuItems: ["SingleRoom", "DoubleRoom", "DeluxeDoubleRoom", "TwinRoom"],
       items: [
         { title: "CHECK-IN", icon: "calendar-range" },
         { title: "CHECK-OUT", icon: "calendar-range" },
@@ -111,8 +109,8 @@ export default {
     },
     choose(type) {
       this.type = type;
-      this.$router.push("/select");
-      console.log(type)
+      this.$router.push({ path: "/select", query: { from: type } });
+      console.log(type);
     }
   }
 };
@@ -124,11 +122,7 @@ export default {
   overflow: hidden;
   padding: 64px 0px 0px 85px;
   h1 {
-    writing-mode: vertical-lr;
-    z-index: 999;
-    position: absolute;
-    background-color: $background-primary;
-    color: $title-color;
+    @include straight($background-primary, $title-color);
   }
 }
 .header {
