@@ -12,47 +12,59 @@
       </div>
       <v-col cols="3" class="introduction--btn">
         <v-btn
+          class="btn__position"
           depressed
           height="60"
           width="100%"
           outlined
           tile
           @click="isShow = !isShow"
+          :style="{
+            backgroundColor: isShow ? '#2D3643' : '',
+            color: isShow ? 'white' : 'black'
+          }"
         >
           <v-icon>mdi-calendar-range</v-icon>
           <p>CHECH-IN</p>
           <v-icon v-show="!startDates">mdi-menu-down</v-icon>
-          <p style="color:blue">{{ startDates }}</p></v-btn
+          <p class="btn__position--p">{{ startDates }}</p></v-btn
         >
-        <Calender
+        <Calendar
           v-model="startDates"
           :show="isShow"
           @click="isShow = !isShow"
-        ></Calender>
+          position="absolute"
+        ></Calendar>
         <v-btn
+          class="btn__position"
           depressed
           height="60"
           width="100%"
           outlined
           tile
           @click="shows = !shows"
+          :style="{
+            backgroundColor: shows ? '#2D3643' : '',
+            color: shows ? 'white' : 'black'
+          }"
         >
           <v-icon>mdi-calendar-range</v-icon>
           <p>CHECK-OUT</p>
           <v-icon v-show="!endDates">mdi-menu-down</v-icon>
-          <p style="color:blue">{{ endDates }}</p></v-btn
+          <p class="btn__position--p">{{ endDates }}</p></v-btn
         >
-        <Calender
+        <Calendar
           v-model="endDates"
           :show="shows"
           @click="shows = !shows"
-        ></Calender>
+          position="absolute"
+        ></Calendar>
         <v-btn width="100%" depressed height="60" dark color="#569DC3" tile
           >RESERVE NOW</v-btn
         >
       </v-col>
     </div>
-    <section class="description">
+    <section class="description margin__space">
       <h3>Description</h3>
       <p>1 Guest・1 Bed (Small Double)・1 Private Bath・22 m²</p>
       <p class="description--text">
@@ -64,20 +76,28 @@
       <p>Check-in is from 3pm to 7pm</p>
       <p>Check-out is before 11am</p>
     </section>
-    <section class="features">
+    <section class="features margin__space">
       <h3>Amenities</h3>
       <span v-for="(item, index) in icons" :key="index"
         ><v-icon>mdi-{{ item.icon }}</v-icon>
         <p>{{ item.name }}</p></span
       >
     </section>
+    <v-col cols="7" class="margin__space">
+      <Calendar
+        v-model="endDates"
+        show="true"
+        @click="shows = !shows"
+        position="relative"
+      ></Calendar>
+    </v-col>
   </div>
 </template>
 <script>
-import Calender from "@/components/Calender.vue";
+import Calendar from "@/components/Calendar.vue";
 export default {
   components: {
-    Calender
+    Calendar
   },
   data() {
     return {
@@ -129,7 +149,7 @@ export default {
   &--text {
     position: absolute;
     right: $space-size;
-    top: 40%;
+    top: 38%;
     text-align: right;
     z-index: 99;
   }
@@ -140,30 +160,26 @@ export default {
     bottom: 15%;
     background-color: $background-primary;
   }
-  .calender__position {
-    position: relative;
-  }
+}
+.calender__position {
+  position: relative;
 }
 .description {
   width: 40%;
-  margin: 0px $space-size;
-  h3{
-    margin:20px 0px;
-  }
   p {
     color: $font-color;
   }
-  &--text{
-    margin:20px 0px;
+  &--text,
+  h3 {
+    margin: $margin-size;
   }
 }
 .features {
   display: flex;
-  margin-left: $space-size;
   width: 50%;
   flex-wrap: wrap;
-  h3{
-    margin:20px 0px;
+  h3 {
+    margin: $margin-size;
     width: 100%;
   }
   span {
@@ -171,8 +187,17 @@ export default {
     margin: 20px 20px 20px 0px;
   }
   p {
-    margin-left:10px;
+    margin-left: 10px;
     display: inline;
+  }
+}
+.btn__position {
+  @extend %menu--btn__position;
+  &--p {
+    margin-left: auto;
+  }
+  .v-icon:nth-child(1) {
+    margin-right: 15px;
   }
 }
 </style>

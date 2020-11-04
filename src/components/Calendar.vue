@@ -1,5 +1,5 @@
 <template>
-  <div class="calender" v-show="show">
+  <div class="calender" v-show="show" :style="{ position: position }">
     <v-col class="calender--btn">
       <span>
         <v-btn icon class="ma-2" @click="$refs.calendar.prev()">
@@ -25,14 +25,13 @@ export default {
     prop: "changes",
     event: "input"
   },
-  props: ["changes", "show"]
+  props: ["changes", "show", "position"]
 };
 </script>
 <style lang="scss" scoped>
 .calender {
   background-color: white;
   width: 100%;
-  position: absolute;
   z-index: 99;
   &--btn {
     display: flex;

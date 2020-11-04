@@ -120,7 +120,7 @@ export default {
   height: 350px;
   position: relative;
   overflow: hidden;
-  padding: 64px 0px 0px 85px;
+  padding: 64px 0px 0px $space-size;
   h1 {
     @include straight($background-primary, $title-color);
   }
@@ -132,9 +132,7 @@ export default {
     right: $space-size;
     top: 120px;
     &--btn {
-      display: flex;
-      border-width: 1px 1px 0px 1px;
-      justify-content: flex-start;
+      @extend %menu--btn__position;
       &:hover {
         background-color: $click-color;
         color: $background-primary;

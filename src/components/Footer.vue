@@ -19,7 +19,7 @@ export default {
 .footer {
   &--img {
     margin-top: 20px;
-    margin-right: 85px;
+    margin-right: $space-size;
   }
   p {
     margin-left: $space-size;
