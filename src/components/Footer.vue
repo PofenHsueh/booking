@@ -6,12 +6,8 @@
       class="footer--img"
       v-if="this.$route.path !== '/info'"
     ></v-img>
-    <p
-      :style="{
-        position: this.$route.path == '/info' ? 'fixed' : '',
-        bottom: this.$route.path == '/info' ? '0' : ''
-      }"
-    >
+    <hr v-if="this.$route.path == '/info'" class="margin__space" />
+    <p>
       © 2020 Hotel. All rights reserved.
     </p>
   </v-col>
