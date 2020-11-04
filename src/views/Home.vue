@@ -68,7 +68,7 @@ export default {
           src: require("@/assets/img/DoubleRoom.jpeg"),
           type2: "Deluxe Double Room",
           price2: "$2,888 NTD / night",
-          src2: require("@/assets/img/deluxe-double.jpeg")
+          src2: require("@/assets/img/DeluxeDoubleRoom.jpeg")
         },
         {
           title: "Family",

@@ -59,7 +59,14 @@
           @click="shows = !shows"
           position="absolute"
         ></Calendar>
-        <v-btn width="100%" depressed height="60" dark color="#569DC3" tile
+        <v-btn
+          width="100%"
+          depressed
+          height="60"
+          dark
+          color="#569DC3"
+          tile
+          @click="booking()"
           >RESERVE NOW</v-btn
         >
       </v-col>
@@ -125,6 +132,12 @@ export default {
     getImg(type) {
       let images = require.context("../assets/img/", false, /\.jpeg$/);
       return images("./" + type + ".jpeg");
+    },
+    booking() {
+      this.$router.push({
+        path: "/info",
+        query: { from: this.$route.query.from }
+      });
     }
   }
 };

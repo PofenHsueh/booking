@@ -30,6 +30,19 @@ const routes = [
           import(/* webpackChunkName: "Select" */ "../views/SelectRoom.vue")
       }
     ]
+  },
+  {
+    path: "/info",
+    name: "Info",
+    component: MainLayout,
+    children: [
+      {
+        path: "/info",
+        name: "Information",
+        component: () =>
+          import(/* webpackChunkName: "Info" */ "../views/Information.vue")
+      }
+    ]
   }
 ];
 
@@ -38,5 +51,4 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-
 export default router;

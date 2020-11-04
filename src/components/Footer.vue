@@ -1,7 +1,19 @@
 <template>
   <v-col class="footer">
-    <v-img :src="images.footerSrc" height="352" class="footer--img"></v-img>
-    <p>© 2020 Hotel. All rights reserved.</p>
+    <v-img
+      :src="images.footerSrc"
+      height="352"
+      class="footer--img"
+      v-if="this.$route.path !== '/info'"
+    ></v-img>
+    <p
+      :style="{
+        position: this.$route.path == '/info' ? 'fixed' : '',
+        bottom: this.$route.path == '/info' ? '0' : ''
+      }"
+    >
+      © 2020 Hotel. All rights reserved.
+    </p>
   </v-col>
 </template>
 <script>

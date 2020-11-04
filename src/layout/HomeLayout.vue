@@ -66,6 +66,7 @@ export default {
   },
   data() {
     return {
+      info: false,
       type: "ROOM",
       appbar: false,
       show: false,
@@ -110,7 +111,6 @@ export default {
     choose(type) {
       this.type = type;
       this.$router.push({ path: "/select", query: { from: type } });
-      console.log(type);
     }
   }
 };
