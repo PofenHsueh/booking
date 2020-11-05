@@ -4,3 +4,9 @@
 .margin__space {
   margin: 0px 85px;
 }
+
+@for $i from 0 through 1 {
+  .info--persional__focus-#{ $i } {
+    color: $main-btn;
+  }
+}
