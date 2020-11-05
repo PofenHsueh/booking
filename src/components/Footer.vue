@@ -4,9 +4,12 @@
       :src="images.footerSrc"
       height="352"
       class="footer--img"
-      v-if="this.$route.path !== '/info'"
+      v-if="$route.path !== '/info' && $route.path !== '/info/reserve'"
     ></v-img>
-    <hr v-if="this.$route.path == '/info'" class="margin__space" />
+    <hr
+      v-if="$route.path == '/info' || $route.path == '/info/reserve'"
+      class="margin__space"
+    />
     <p>
       © 2020 Hotel. All rights reserved.
     </p>

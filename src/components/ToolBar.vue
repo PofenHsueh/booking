@@ -5,7 +5,7 @@
     v-show="show"
     :style="{ position: position }"
   >
-    <v-btn height="72" width="150" color="#000000">
+    <v-btn height="72" width="150" color="#000000" @click="home()">
       <i>HH</i>
     </v-btn>
     <v-btn
@@ -15,6 +15,7 @@
       v-for="(item, index) in barItems"
       :key="index"
       color="#ffffff"
+      :style="{ display: 'flex', justifyContent: justifyContent }"
     >
       <v-icon>mdi-{{ item.icon }}</v-icon>
       <p>{{ item.title }}</p>
@@ -27,7 +28,14 @@
 </template>
 <script>
 export default {
-  props: ["show", "barItems", "reserve", "position"]
+  props: ["show", "barItems", "reserve", "position", "justifyContent"],
+  methods: {
+    home() {
+      if (this.$route.path !== "/") {
+        this.$router.push("/");
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

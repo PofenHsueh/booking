@@ -134,10 +134,16 @@ export default {
       return images("./" + type + ".jpeg");
     },
     booking() {
-      this.$router.push({
-        path: "/info",
-        query: { from: this.$route.query.from }
-      });
+      if (this.startDates && this.startDates) {
+        this.$router.push({
+          path: "/info",
+          query: {
+            from: this.$route.query.from,
+            startDates: this.startDates,
+            endDates: this.endDates
+          }
+        });
+      }
     }
   }
 };

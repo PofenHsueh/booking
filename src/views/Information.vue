@@ -19,7 +19,14 @@
           @blur="item.change = false"
         ></v-text-field>
       </div>
-      <v-btn width="100%" depressed height="60" dark color="#569DC3" tile
+      <v-btn
+        width="100%"
+        depressed
+        height="60"
+        dark
+        color="#569DC3"
+        tile
+        @click="$router.push('/info/reserve')"
         >RESERVE NOW</v-btn
       >
     </v-col>
@@ -58,8 +65,8 @@ export default {
         { title: "PHONE", icon: "cellphone-iphone", change: false }
       ],
       types: [
-        { title: "CHECK-IN", date: "2020-11-04" },
-        { title: "CHECK-OUT", date: "2020-11-09" }
+        { title: "CHECK-IN", date: this.$route.query.startDates },
+        { title: "CHECK-OUT", date: this.$route.query.endDates }
       ],
       total: [
         { price: "$1,899 × 2 night", amount: "$3,798" },
@@ -92,12 +99,11 @@ export default {
     padding: 42px 20px 20px 20px;
     margin: 0px 85px;
     h1 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
   }
   &--type {
-    h2,
-    section {
+    h2 {
       padding: 15px;
     }
   }

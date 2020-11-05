@@ -5,6 +5,7 @@
       :barItems="barItems"
       :reserve="false"
       position="relative"
+      justifyContent="flex-end"
     ></ToolBar>
     <v-main>
       <router-view></router-view>

@@ -5,6 +5,7 @@
       :barItems="barItems"
       reserve="true"
       position="fixed"
+      justifyContent="center"
     ></ToolBar>
     <v-col class="header">
       <v-col class="box" cols="10">
