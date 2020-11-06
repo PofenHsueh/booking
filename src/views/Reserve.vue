@@ -1,7 +1,10 @@
 <template>
   <div style="display:flex; justify-content:center">
-    <v-card style="width:45%;margin:50px;
-    "  flat>
+    <v-card
+      style="width:45%;margin:50px;
+    "
+      flat
+    >
       <h1>
         Reservation<br />
         Received!
@@ -21,8 +24,17 @@
         </v-list-item>
       </v-list>
       <v-card-actions>
-        <v-btn depressed height="60" width="100%" outlined tile>a</v-btn>
-        <v-btn depressed height="60" width="100%" dark color="#569DC3" tile
+        <v-btn depressed height="60" width="100%" outlined tile
+          >EDIT RESERVATION</v-btn
+        >
+        <v-btn
+          depressed
+          height="60"
+          width="100%"
+          dark
+          color="#569DC3"
+          tile
+          @click="$router.push('/')"
           >HOMEPAGE</v-btn
         >
       </v-card-actions>
@@ -35,7 +47,7 @@ export default {
     return {
       reserveInfo: [
         { title: "GUEST", content: "Jade" },
-        { title: "PHONE", content: "0912-34567" }
+        { title: "PHONE", content: "0912-345678" }
       ],
       reserveDate: [
         { title: "CHECK-IN", date: "test" },
@@ -62,7 +74,7 @@ export default {
     }
   }
 }
-.list__position{
-  margin-left:auto;
+.list__position {
+  margin-left: auto;
 }
 </style>

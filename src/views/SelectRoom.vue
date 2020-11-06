@@ -134,7 +134,7 @@ export default {
       return images("./" + type + ".jpeg");
     },
     booking() {
-      if (this.startDates && this.startDates) {
+      if (this.startDates && this.endDates) {
         this.$router.push({
           path: "/info",
           query: {

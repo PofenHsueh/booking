@@ -60,6 +60,7 @@
 export default {
   data() {
     return {
+      value: "",
       infoData: [
         { title: "NAME", icon: "account", change: false },
         { title: "PHONE", icon: "cellphone-iphone", change: false }
