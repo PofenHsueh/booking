@@ -33,7 +33,7 @@ export default {
   align-items: center;
 }
 .outside {
-  @include shape(150px, 150px, 50%, absolute);
+  @include shape(160px, 160px, 50%, absolute);
   border: 1px solid gray;
   animation: ro 2s infinite linear;
 }
