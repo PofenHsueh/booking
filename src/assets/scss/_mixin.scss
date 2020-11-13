@@ -5,3 +5,10 @@
   background-color: $background;
   color: $color;
 }
+@mixin shape($height, $width, $border-radius, $position) {
+  width: $width;
+  height: $height;
+  border-radius: $border-radius;
+  position: $position;
+  z-index: 999;
+}
