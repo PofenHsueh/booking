@@ -31,6 +31,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #FAD689;
 }
 .outside {
   @include shape(160px, 160px, 50%, absolute);
