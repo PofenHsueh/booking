@@ -8,14 +8,15 @@ const store = createStore();
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  // console.log(to.path,from.path)
   store.dispatch("setIsLoading", true);
+  if (to.path == "/" && from.path == "/") {
+    store.dispatch("setIsLoading", false);
+  }
   next();
 });
 router.afterEach(() => {
   setTimeout(function() {
     store.dispatch("setIsLoading", false);
-    // console.log(store.state.loading.isloading)
   }, 2000);
 });
 
