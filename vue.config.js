@@ -1,6 +1,6 @@
 module.exports = {
   transpileDependencies: ["vuetify"],
-  publicPath: process.env.NODE_ENV === "production" ? "/booking/" : "/",
+  // publicPath: process.env.NODE_ENV === "production" ? "/booking/" : "/",
   configureWebpack: {
     performance: {
       hints: false,
