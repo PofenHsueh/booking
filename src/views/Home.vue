@@ -4,7 +4,13 @@
       <h1 class="text-color">Recommend</h1>
       <h4>You may be interested in our popular rooms</h4>
       <v-col class="cardList--card">
-        <v-card v-for="type in typeItems" :key="type.title" flat width="350">
+        <v-card
+          v-for="type in typeItems"
+          :key="type.title"
+          flat
+          width="350"
+          class="cardList--hover"
+        >
           <v-img :src="type.src" aspect-ratio="1.46"></v-img>
           <div class="cardList--card--text">
             <span>{{ type.title }}</span>
@@ -25,14 +31,14 @@
         <h1>{{ room.title }}</h1>
         <h6>{{ room.subtitle }}</h6>
       </div>
-      <v-card flat>
+      <v-card flat class="cardList--hover">
         <v-img width="350" aspect-ratio="1.46" :src="room.src"></v-img>
         <v-card-text class="info--img--subtitle">
           <h3>{{ room.type }}</h3>
           <p>{{ room.price }}</p>
         </v-card-text>
       </v-card>
-      <v-card flat>
+      <v-card flat class="cardList--hover">
         <v-img width="350" aspect-ratio="1.46" :src="room.src2"></v-img>
         <v-card-text class="info--img--subtitle">
           <h3>{{ room.type2 }}</h3>
@@ -119,6 +125,10 @@ export default {
       align-items: flex-end;
       flex-direction: column;
     }
+  }
+  &--hover:hover {
+    transform: scale(0.9);
+    opacity: 0.8;
   }
 }
 .box {
